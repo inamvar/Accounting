@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Models.Domain
 {
@@ -12,7 +8,8 @@ namespace Models.Domain
         public virtual string PartyName { get; set; }
         public virtual string PartyCode { get; set; }
         public virtual string Description { get; set; }
+        public virtual decimal TrialBalance { get; set; }
 
-        
+        public virtual IList<Entry> Entries { get; set; }
     }
 }

@@ -1,11 +1,9 @@
 ﻿using System;
-using System.IO;
-using System.Xml;
 using NHibernate;
 using NHibernate.Cfg;
 using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
-using Models.Domain;
+using NHibernate.Tool.hbm2ddl;
 
 namespace DataLayer.UnitOfWorks
 {
@@ -39,6 +37,7 @@ namespace DataLayer.UnitOfWorks
                             .Database(
                                 SQLiteConfiguration.Standard
                                               .UsingFile("core.db")
+                                              
                                              // .ShowSql()
                                               
                         )
@@ -48,6 +47,7 @@ namespace DataLayer.UnitOfWorks
                                       m.FluentMappings.AddFromAssemblyOf<Models.Domain.Account>()
                                                      
                                       )
+                            .ExposeConfiguration(cfg => new SchemaUpdate(cfg).Execute(false, true))
                             .BuildConfiguration();
                     //_configuration = new Configuration();
                     //string hibernateConfig = Default_HibernateConfig;

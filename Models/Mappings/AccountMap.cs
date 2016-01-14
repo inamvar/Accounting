@@ -24,13 +24,19 @@ namespace Models.Mappings
             Map(q => q.AccountName);
             Map(q => q.Description);
             Map(q => q.IsActive);
+            Map(q => q.AccountType);
+            Map(q => q.TrialBalance);
+
             HasMany(q => q.Childeren)
                 .KeyColumn("ParentFk")
                 .Cascade.All();
 
             References<Account>(x => x.Parent).Column("ParentFk");
 
-
+            HasMany(x => x.Entries)
+                .KeyColumn("AccountFk")
+                .LazyLoad()
+                .Cascade.All();
 
         }
     }

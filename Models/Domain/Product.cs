@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Models.Domain
+﻿namespace Models.Domain
 {
     public class Product
     {

@@ -55,7 +55,9 @@
     <Compile Include="Common\Constants.cs" />
     <Compile Include="Common\Currency.cs" />
     <Compile Include="Domain\Account.cs" />
+    <Compile Include="Domain\AccountType.cs" />
     <Compile Include="Domain\Bank.cs" />
+    <Compile Include="Domain\CashBox.cs" />
     <Compile Include="Domain\Entry.cs" />
     <Compile Include="Domain\Gender.cs" />
     <Compile Include="Domain\Party.cs" />
@@ -63,12 +65,20 @@
     <Compile Include="Domain\PersonGroup.cs" />
     <Compile Include="Domain\PersonType.cs" />
     <Compile Include="Domain\Product.cs" />
+    <Compile Include="Domain\Project.cs" />
     <Compile Include="Domain\Transaction.cs" />
     <Compile Include="Domain\TransactionType.cs" />
     <Compile Include="Mappings\AccountMap.cs" />
     <Compile Include="Mappings\BankMap.cs" />
+    <Compile Include="Mappings\CashBoxMap.cs" />
+    <Compile Include="Mappings\CurrencyMap.cs" />
+    <Compile Include="Mappings\EntryMap.cs" />
     <Compile Include="Mappings\PartyMap.cs" />
+    <Compile Include="Mappings\PersonGroupMap.cs" />
+    <Compile Include="Mappings\PersonMap.cs" />
     <Compile Include="Mappings\ProductMap.cs" />
+    <Compile Include="Mappings\ProjectMap.cs" />
+    <Compile Include="Mappings\TransactionMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

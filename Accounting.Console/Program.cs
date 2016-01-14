@@ -3,21 +3,16 @@ using DataLayer.UnitOfWorks;
 
 using Models.Domain;
 using NHibernate.Cfg;
-using NHibernate.Criterion;
 using NHibernate.Tool.hbm2ddl;
 using Services;
-using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Reflection;
 
 namespace Accounting.Console
 {
     class Program
     {
         private static string DbFile = "core.db";
-        private static IRepository<Bank> _repository;
+      
         static void Main(string[] args)
         {
 
@@ -25,54 +20,12 @@ namespace Accounting.Console
             using (UnitOfWork.Start())
             {
                 //  BuildSchema(UnitOfWork.Configuration);
-                //_repository = new Repository<Bank>();
-                //var bank = new Bank
-                //{
-                //    PartyCode = "1234",
-                //    Branch = "Tonekabon",
-                //    Description="Central bank of Saman in Tonekabon city",
-                //    PartyName ="Bank Saman",
-                //    BranchCode="9441"
 
-
-                //};
-
-
-
-                //  _repository.SaveOrUpdate(bank);
-                //var banks = _repository.FindAll(Order.Asc("PartyName"));
-                //foreach (var b in banks)
-                //{
-                //    System.Console.WriteLine("{0} {1} {2}\n", b.PartyName, b.Branch , b.BranchCode);
-                //}
 
 
                 var _AccountRepository = new Repository<Account>();
                 EntityService<Account> service = new EntityService<Account>(_AccountRepository);
                 service.Saved += Service_Saved;
-                //var parent = new Account()
-                //{
-                //    AccountCode = 1,
-                //    AccountName ="Assets",
-                //    Description = "",
-                //    IsActive = true,
-                //    TrialBalance = 0
-                //};
-
-                //var ch = new Account()
-                //{
-                //    AccountCode = 11,
-                //    IsActive = true,
-                //    AccountName = "Computers",
-                //    TrialBalance = 0,
-                //    Description = "Availabel laptops and Pc's"
-
-
-                //};
-
-                //  var parent = _AccountRepository.Get(11);
-
-
 
                 var tableAcc = new Account
                 {
@@ -85,15 +38,8 @@ namespace Accounting.Console
                 };
 
 
-                service.Save(tableAcc);
-                //  ch.Parent = parent;
-                //  parent.Childeren.Add(ch);
-                //   _AccountRepository.Save(ch);
-
-                //var accounts = _AccountRepository.FindAll(
-                //    DetachedCriteria.For<Account>()
-                //    .Add(Expression.IsNull("Parent")),
-                //     Order.Asc("AccountCode"));
+             //   service.Save(tableAcc);
+               
                 var accounts = service.FindAll("Id");
                 foreach (var account in accounts)
                 {

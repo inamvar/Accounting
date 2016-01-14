@@ -5,17 +5,18 @@ namespace Models.Domain
 {
     public class Transaction
     {
-        public int Id { get; set; }
-        public int Serial { get; set; }
-        public DateTime CreateDate { get; set; }
-        public DateTime LastModifyDate { get; set; }
-        public DateTime PaperDate { get; set; }
-        public string Note { get; set; }
-        public IList<Entry> Entries { get; set; }
+        public virtual int Id { get; set; }
+        public virtual int Serial { get; set; }
+        public virtual DateTime CreateDate { get; set; }
+        public virtual DateTime LastModifyDate { get; set; }
+        public virtual DateTime PaperDate { get; set; }
+        public virtual string Note { get; set; }
+        public virtual IList<Entry> Entries { get; set; }
 
-        public string CreatedBy { get; set; }
-        public string ModifiedBy { get; set; }
+        public virtual string CreatedBy { get; set; }
+        public virtual string ModifiedBy { get; set; }
 
-        public TransactionType TransactionType { get; set; }
+        public virtual string RefNumber { get; set; }
+        public virtual TransactionType TransactionType { get; set; }
     }
 }

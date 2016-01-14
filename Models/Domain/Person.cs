@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Models.Domain
+﻿namespace Models.Domain
 {
     public class Person : Party
     {
@@ -22,7 +16,7 @@ namespace Models.Domain
         public virtual string Email2 { get; set; }
         public virtual bool IsBlocked { get; set; }
         public virtual  PersonGroup Group { get; set; }
-        public byte[] Image { get; set; }
+        public virtual byte[] Image { get; set; }
 
     }
 }

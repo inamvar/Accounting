@@ -19,15 +19,19 @@ namespace Models.Mappings
             // generate the primary key for a new
             // record while saving a new record
             Id(x => x.Id)
-            .Column("Id")
-           
-            .Not.Nullable()
-           
-            .GeneratedBy.Identity();
+                .Column("Id")           
+                .Not.Nullable()           
+                .GeneratedBy.Identity();
 
             Map(q => q.Description);
             Map(q => q.PartyCode);
             Map(q => q.PartyName);
+            Map(q => q.TrialBalance);
+
+            HasMany<Entry>(x => x.Entries)
+                .KeyColumn("PartyFk")
+                .LazyLoad()
+                .Cascade.SaveUpdate();
         }
     }
 }
